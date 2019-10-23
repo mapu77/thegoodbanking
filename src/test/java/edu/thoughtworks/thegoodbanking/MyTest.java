@@ -1,15 +1,15 @@
 package edu.thoughtworks.thegoodbanking;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
-class MyTest {
+public class MyTest {
 
     @Test
-    void test() {
-        assertThat(true).isTrue();
+    public void test() {
+        assertTrue(true);
     }
 
 }
