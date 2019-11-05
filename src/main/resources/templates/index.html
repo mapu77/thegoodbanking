@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Good Banking</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="container">
+<div class="jumbotron">
+  <h1 class="display-1">The Good Banking</h1>
+  <h4 class="display-4">A brand new way of managing your money</h4>
+  <hr>
+  <form>
+    <div class="form-group">
+      <label for="amount">
+        Amount ($)
+        <input id="amount" type="number" required
+               class="form-control form-control-lg"/>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="source-account">
+        Source account
+        <input id="source-account" type="text" required
+               class="form-control form-control-lg"/>
+      </label>
+      <label for="dest-account">
+        Destination account
+        <input id="dest-account" type="text" required
+               class="form-control form-control-lg"/>
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="dest-name">
+        Destination name
+        <input id="dest-name" type="text" required
+               class="form-control form-control-lg"/>
+      </label>
+    </div>
+    <div class="form-group">
+
+      <label for="description">
+        Description
+        <textarea id="description"
+                  rows="4" cols="50"
+                  class="form-control"></textarea>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Transfer</button>
+  </form>
+</div>
+</body>
+</html>
