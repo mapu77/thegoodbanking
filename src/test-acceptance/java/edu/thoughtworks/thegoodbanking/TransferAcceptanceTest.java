@@ -1,6 +1,7 @@
 package edu.thoughtworks.thegoodbanking;
 
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlNumberInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
@@ -26,6 +27,12 @@ public class TransferAcceptanceTest {
         fillSourceAccountDetails(htmlPage, "ES7921000813610123456789");
         fillDestinationAccountDetails(htmlPage, "ES7921000813610123456789");
         filAmountDetails(htmlPage, "100,00");
+        clickTransfer(htmlPage);
+    }
+
+    private void clickTransfer(HtmlPage htmlPage) throws IOException {
+        HtmlForm form = htmlPage.getFormByName("transfer");
+        form.click();
     }
 
     private void filAmountDetails(HtmlPage htmlPage, String fieldValue) throws IOException {
