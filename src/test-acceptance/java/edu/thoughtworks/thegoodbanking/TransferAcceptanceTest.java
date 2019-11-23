@@ -28,6 +28,7 @@ public class TransferAcceptanceTest {
         fillDestinationAccountDetails(htmlPage, "ES7921000813610123456789");
         filAmountDetails(htmlPage, "100,00");
         clickTransfer(htmlPage);
+
     }
 
     private void clickTransfer(HtmlPage htmlPage) throws IOException {
