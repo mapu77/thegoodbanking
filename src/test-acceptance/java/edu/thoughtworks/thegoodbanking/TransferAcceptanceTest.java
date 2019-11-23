@@ -35,7 +35,7 @@ public class TransferAcceptanceTest {
     }
 
     private void fillTextField(HtmlPage htmlPage, String fieldName, String fieldValue) throws IOException {
-        HtmlInput destinationAccountInputField = (HtmlInput) htmlPage.getElementById(fieldName);
-        destinationAccountInputField.type(fieldValue);
+        HtmlInput textInputField = (HtmlInput) htmlPage.getElementById(fieldName);
+        textInputField.type(fieldValue);
     }
 }
