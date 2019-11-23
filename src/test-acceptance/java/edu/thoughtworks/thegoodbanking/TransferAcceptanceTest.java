@@ -24,6 +24,7 @@ public class TransferAcceptanceTest {
         HtmlInput sourceAccountInputField = (HtmlInput) htmlPage.getElementById("source-account");
         sourceAccountInputField.type("ES7921000813610123456789");
 
-
+        HtmlInput destinationAccountInputField = (HtmlInput) htmlPage.getElementById("destination-account");
+        destinationAccountInputField.type("ES7921000813610123456789");
     }
 }
