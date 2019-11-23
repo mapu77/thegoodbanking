@@ -15,16 +15,27 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class TransferAcceptanceTest {
+
     @Test
     public void shouldNotAllowTransfersToTheSameAccountAsSource() throws IOException {
         WebClient webClient = new WebClient();
         HtmlPage htmlPage = webClient.getPage("http://localhost:8080");
         assertEquals("The Good Banking", htmlPage.getTitleText());
 
-        HtmlInput sourceAccountInputField = (HtmlInput) htmlPage.getElementById("source-account");
-        sourceAccountInputField.type("ES7921000813610123456789");
+        fillSourceAccountDetails(htmlPage, "ES7921000813610123456789");
+        fillDestinationAccountDetails(htmlPage, "ES7921000813610123456789");
+    }
 
-        HtmlInput destinationAccountInputField = (HtmlInput) htmlPage.getElementById("destination-account");
-        destinationAccountInputField.type("ES7921000813610123456789");
+    private void fillDestinationAccountDetails(HtmlPage htmlPage, String fieldValue) throws IOException {
+        fillTextField(htmlPage, "destination-account", fieldValue);
+    }
+
+    private void fillSourceAccountDetails(HtmlPage htmlPage, String fieldValue) throws IOException {
+        fillTextField(htmlPage, "source-account", fieldValue);
+    }
+
+    private void fillTextField(HtmlPage htmlPage, String fieldName, String fieldValue) throws IOException {
+        HtmlInput destinationAccountInputField = (HtmlInput) htmlPage.getElementById(fieldName);
+        destinationAccountInputField.type(fieldValue);
     }
 }
