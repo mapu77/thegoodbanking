@@ -1,6 +1,7 @@
 package edu.thoughtworks.thegoodbanking;
 
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,5 +20,10 @@ public class TransferAcceptanceTest {
         WebClient webClient = new WebClient();
         HtmlPage htmlPage = webClient.getPage("http://localhost:8080");
         assertEquals("The Good Banking", htmlPage.getTitleText());
+
+        HtmlInput sourceAccountInputField = (HtmlInput) htmlPage.getElementById("source-account");
+        sourceAccountInputField.type("ES7921000813610123456789");
+
+
     }
 }
