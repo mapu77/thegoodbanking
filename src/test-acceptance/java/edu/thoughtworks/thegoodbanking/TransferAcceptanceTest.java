@@ -1,8 +1,9 @@
 package edu.thoughtworks.thegoodbanking;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlNumberInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +25,11 @@ public class TransferAcceptanceTest {
 
         fillSourceAccountDetails(htmlPage, "ES7921000813610123456789");
         fillDestinationAccountDetails(htmlPage, "ES7921000813610123456789");
+        filAmountDetails(htmlPage, "100,00");
+    }
+
+    private void filAmountDetails(HtmlPage htmlPage, String fieldValue) throws IOException {
+        fillNumberField(htmlPage, "amount", fieldValue);
     }
 
     private void fillDestinationAccountDetails(HtmlPage htmlPage, String fieldValue) throws IOException {
@@ -35,7 +41,12 @@ public class TransferAcceptanceTest {
     }
 
     private void fillTextField(HtmlPage htmlPage, String fieldName, String fieldValue) throws IOException {
-        HtmlInput textInputField = (HtmlInput) htmlPage.getElementById(fieldName);
+        HtmlTextInput textInputField = (HtmlTextInput) htmlPage.getElementById(fieldName);
         textInputField.type(fieldValue);
+    }
+
+    private void fillNumberField(HtmlPage htmlPage, String fieldName, String fieldValue) throws IOException {
+        HtmlNumberInput numberInputField = (HtmlNumberInput) htmlPage.getElementById(fieldName);
+        numberInputField.type(fieldValue);
     }
 }
